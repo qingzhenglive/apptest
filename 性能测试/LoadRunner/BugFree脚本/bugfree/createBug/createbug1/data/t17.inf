@@ -1,0 +1,13 @@
+[t17]
+FileName1=t17.htm
+URL1=http://10.7.90.119:8032/bugfree3.0.3/index.php/search/getPreNextId?id=1180&type=bug&product_id=1
+Total=1
+RequestHeaderFile=t17_RequestHeader.txt
+RequestBodyFile=NONE
+ResponseHeaderFile=t17_ResponseHeader.txt
+ContentType=text/html
+SnapshotXmlFile=snapshot_8.xml
+[ProtocolInfo]
+ProtocolId=QTWeb
+[AdditionalInfo]
+IsIgnorable=1

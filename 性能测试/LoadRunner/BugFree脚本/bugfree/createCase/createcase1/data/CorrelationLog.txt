@@ -1,0 +1,213 @@
+Debug Message:
+	Correlation engine instance created; using configuration Default
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/site/login/
+
+Debug Message:
+	TaskID=118  URL=http://10.7.90.119:8032/bugfree3.0.3/index.php/site/login/
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/themes/classic/assets/images/blue/seperate_line.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/site/login/
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/themes/classic/assets/images/blue/logo_login.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/site/login/
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/site/login/
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/site/login/
+
+Debug Message:
+	TaskID=132  URL=http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/themes/classic/assets/images/down.gif
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/themes/classic/assets/images/active.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/themes/classic/assets/images//close_div.gif
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-icons_222222_256x240.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/search/getProductModule
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-icons_222222_256x240.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/bc55afbf/img/page.gif
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/case/list/1
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/bug/list/1
+
+Debug Message:
+	TaskID=174  URL=http://10.7.90.119:8032/bugfree3.0.3/index.php/case/list/1
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/search/getProductModule
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/case/list/1
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/info/edit?type=case&action=opened&product_id=1
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/case/list/1
+
+Debug Message:
+	TaskID=182  URL=http://10.7.90.119:8032/bugfree3.0.3/index.php/info/edit?type=case&action=opened&product_id=1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/info/edit?type=case&action=opened&product_id=1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/info/edit?type=case&action=opened&product_id=1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-icons_222222_256x240.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/info/edit?type=case&action=opened&product_id=1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/8e4d999e/themes/default/default.css
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/info/edit?type=case&action=opened&product_id=1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/8e4d999e/themes/default/default.png
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/info/edit?type=case&action=opened&product_id=1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/93d21f33/indicator.gif
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/info/edit?type=case&action=opened&product_id=1
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/info/edit?type=case&action=opened&product_id=1
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/info/edit?type=case&action=opened&product_id=1
+
+Debug Message:
+	TaskID=220  URL=http://10.7.90.119:8032/bugfree3.0.3/index.php/info/edit?type=case&action=opened&product_id=1
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/case/list/1
+
+Debug Message:
+	TaskID=223  URL=http://10.7.90.119:8032/bugfree3.0.3/index.php/case/list/1
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/case/6
+
+Debug Message:
+	TaskID=227  URL=http://10.7.90.119:8032/bugfree3.0.3/index.php/case/6
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/themes/classic/assets/images/down.gif
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/case/list/1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/themes/classic/assets/images//close_div.gif
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/case/list/1
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/search/getProductModule
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/case/list/1
+
+Debug Message:
+	Rules could not be applied to /bugfree3.0.3/assets/bc55afbf/img/page.gif
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/case/list/1
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/search/getPreNextId?id=6&type=case&product_id=1
+
+Debug Message:
+	Rules could not be applied to http://10.7.90.119:8032/bugfree3.0.3/index.php/case/6
+

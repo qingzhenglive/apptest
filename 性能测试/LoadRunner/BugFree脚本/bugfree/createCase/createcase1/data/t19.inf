@@ -1,0 +1,13 @@
+[t19]
+FileName1=t19.htm
+URL1=http://10.7.90.119:8032/bugfree3.0.3/index.php/search/getPreNextId?id=6&type=case&product_id=1
+Total=1
+RequestHeaderFile=t19_RequestHeader.txt
+RequestBodyFile=NONE
+ResponseHeaderFile=t19_ResponseHeader.txt
+ContentType=text/html
+SnapshotXmlFile=snapshot_11.xml
+[ProtocolInfo]
+ProtocolId=QTWeb
+[AdditionalInfo]
+IsIgnorable=1

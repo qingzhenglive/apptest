@@ -1,0 +1,13 @@
+[StartRecordingGMT]
+StartRecordingGMT_1=2019/05/27 07:15:41
+StartRecordingIsDst_1=0
+StartRecordingGMT_2=2019/05/27 07:30:56
+StartRecordingIsDst_2=0
+StartRecordingGMT_3=2019/05/27 07:34:34
+StartRecordingIsDst_3=0
+[UserHomePage]
+UserHomePage=res://shdoclc.dll/hardAdmin.htm
+[Security]
+UsingPersistForAuthentication=1
+[User-Agent]
+User-Agent=Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)

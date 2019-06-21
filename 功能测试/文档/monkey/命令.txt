@@ -1,0 +1,4 @@
+adb shell monkey -p neet.com.youjidemo --throttle  500 --ignore-crashes --ignore-timeouts --ignore-security-exceptions --ignore-native-crashes --monitor-native-crashes -v -v -v 1000000 > F:\documents\monkey\monkey1.log
+由于设置次数太多没有运行完成monkey1.log
+adb shell monkey -p neet.com.youjidemo --throttle  500 --ignore-crashes --ignore-timeouts --ignore-security-exceptions --ignore-native-crashes --monitor-native-crashes -v -v -v 1000 > F:\documents\monkey\monkey1.log
+monkey2.log完成

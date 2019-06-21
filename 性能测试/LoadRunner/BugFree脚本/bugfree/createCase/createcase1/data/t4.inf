@@ -1,0 +1,17 @@
+[t4]
+FileName1=t4.htm
+URL1=http://10.7.90.119:8032/bugfree3.0.3/index.php/search/getProductModule
+Total=3
+RequestHeaderFile=t4_RequestHeader.txt
+RequestBodyFile=t4_RequestBody.txt
+ResponseHeaderFile=t4_ResponseHeader.txt
+ContentType=text/html
+SnapshotXmlFile=snapshot_3.xml
+FileName2=t4_ui-bg_flat_75_ffffff_40x100.png
+URL2=http://10.7.90.119:8032/bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png
+FileName3=t4_page.gif
+URL3=http://10.7.90.119:8032/bugfree3.0.3/assets/bc55afbf/img/page.gif
+[ProtocolInfo]
+ProtocolId=QTWeb
+[AdditionalInfo]
+IsIgnorable=1

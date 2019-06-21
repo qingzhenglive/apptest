@@ -1,0 +1,13 @@
+[t14]
+FileName1=t14.htm
+URL1=http://10.7.90.119:8032/bugfree3.0.3/index.php/info/edit?type=bug&action=opened&product_id=1
+Total=1
+RequestHeaderFile=t14_RequestHeader.txt
+RequestBodyFile=t14_RequestBody.txt
+ResponseHeaderFile=t14_ResponseHeader.txt
+ContentType=text/html
+SnapshotXmlFile=snapshot_5.xml
+[ProtocolInfo]
+ProtocolId=QTWeb
+[AdditionalInfo]
+IsIgnorable=0

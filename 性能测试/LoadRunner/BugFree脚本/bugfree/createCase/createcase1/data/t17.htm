@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="en" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/form.css" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/bugfree3_basic.css" />
+                                        <script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/overlib.js"></script>
+        <script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/assets/50038a0d/jui/css/base/jquery-ui.css" />
+<script type="text/javascript" src="/bugfree3.0.3/assets/50038a0d/jquery.min.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/assets/50038a0d/jquery.bgiframe.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/jquery.form.js"></script>
+</head>
+    <body>
+        <script type="text/javascript">
+    $needToConfirm = true;
+    var $oldValueArr = new Array();
+    var $infoType = 'case';
+    var $baseUrl = '/bugfree3.0.3'
+    var $modelName = 'CaseInfoView';
+    var pageDirtyValue = 0;
+    var actionType = 'view';
+    var productId = 1;
+    function confirmWhenExit()
+    {
+        if($needToConfirm == true)
+        {
+            try{
+                repeat_step_editor.sync();
+            }catch(e){};
+            action_note_editor.sync();
+            $newValueArr = getFormValue();
+            if(isPageDirty($oldValueArr,$newValueArr))
+            {
+                return '如果您离开本页面，您所做的更改将会丢失。';
+            }
+        }      
+    }
+    function getChildModule($parentId)
+    {
+        $productModuleId = $('select.product_module').attr('id');
+        jQuery.get("/bugfree3.0.3/index.php/search/getChildModuleSelect", {'parent_id':$parentId,'type':$infoType}, function (data, textStatus){
+            if('success' == textStatus)
+            {
+                $('#'+$productModuleId).replaceWith(data);
+                setAssignTo($infoType);
+            }
+        });
+    }
+    function submitForm()
+    {
+        $('div#buttonlist input.btn').attr('disabled','disabled');
+        try{
+            repeat_step_editor.sync();
+        }catch(e){};   
+        action_note_editor.sync();
+        if(1 == pageDirtyValue)
+        {
+            $('#isPageDirty').val(1);
+        }
+        else
+        {
+            $newValueArr = getFormValue();
+            if(isPageDirty($oldValueArr,$newValueArr))
+            {
+                $('#isPageDirty').val(1);
+            }
+        }       
+        document.forms[0].submit();
+    }
+
+    function saveTemplate($title)
+    {
+        $title = jQuery.trim($title);
+        $titleLength = $title.length;
+        if($titleLength<1 || $titleLength>20)
+        {
+            alert('标题长度必须为 1~20');
+            return;
+        }
+        jQuery.get("/bugfree3.0.3/index.php/search/checkTemplate", {'title':$title,'type':$infoType,'product_id':productId}, function (data, textStatus){
+            if('success' == textStatus)
+            {
+                if(('' != data)&&(!confirm('确定修改模板'+' '+$title+'?')))
+                {
+                    return false;
+                }
+                else
+                {
+                    $('#templateTitle').attr('value',$title);
+                    $("#template_dialog").dialog("close");
+                    document.forms[0].submit();
+                }
+
+            }
+        });
+        return false;
+    }
+    function deleteFile($id)
+    {
+        if(!confirm('确认删除?'))
+        {
+            return;
+        }
+        else
+        {
+            $('#'+$modelName+'_deleted_file_id').val($('#'+$modelName+'_deleted_file_id').val()+','+$id);
+            $('#file'+$id).remove();
+        }
+    }
+    function isPageDirty($oldValueArr,$newValueArr)
+    {
+        if('' != $('.deleted_file_id_class').val())
+        {
+            return true;
+        }
+        for(var $id in $newValueArr)
+        {
+            if(($id != undefined)&&($id != 'undefined') &&($newValueArr[$id] != undefined) &&
+                ($oldValueArr[$id] != undefined) && ($newValueArr[$id] != $oldValueArr[$id]))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function getFormValue()
+    {
+        $returnValueArr = new Array();
+        var $multiSelectElements = $('a.multiSelect');
+        $multiSelectElements.each(function(){
+            $id = $(this).attr('id');
+            $value = $(this).find('span').text();
+            $returnValueArr[$id] = $value;
+        })
+        var $pageInputElements = $('form :input');
+        $pageInputElements.each(function(){
+            $type = $(this).attr('type');
+            $id = $(this).attr('id');
+            $value = $(this).val();
+            if('hidden' == $type)
+            {
+                $hiddenId = $(this).attr('id');
+                if('ResultInfoView_result_step' == $hiddenId)
+                {
+                    $returnValueArr[$id] = $(this).val();
+                }
+            }
+            else if('checkbox' == $type)
+            {
+                $name = $(this).attr('name');
+                if('checked' == $(this).attr('checked'))
+                {
+                    if($returnValueArr[$name] == undefined)
+                    {
+                        $returnValueArr[$name] = $value;
+                    }
+                    else
+                    {
+                        $returnValueArr[$name] += ','+$value;
+                    }
+                }
+
+            }
+            else
+            {
+                $returnValueArr[$id] = $(this).val();
+            }
+        });
+        return $returnValueArr;
+    }
+    function setAssignTo($type)
+    {
+        if('result' == $type)
+        {
+            return;
+        }
+        $idPrefix = '';
+        if('bug' == $type)
+        {
+            $idPrefix = 'BugInfoView_';
+        }
+        else if('case' == $type)
+        {
+            $idPrefix = 'CaseInfoView_';
+        }
+        $moduleId = $('#'+$idPrefix+'productmodule_id').val();
+        jQuery.get("/bugfree3.0.3/index.php/search/getModuleOwner", {'module_id':$moduleId}, function (data, textStatus){
+            if('success' == textStatus)
+            {
+                if('' != data)
+                {
+                    $('#'+$idPrefix+'assign_to_name').val(data);
+                }
+            }
+        });
+    }
+    
+    function setDefaultCursor()
+    {
+        $('div#buttonlist .btn').each(function(){
+            if('disabled' == $(this).attr('disabled'))
+                {
+                    $(this).css('cursor','default');
+                }
+        })
+    }
+    window.onload = function()
+    {
+        setDefaultCursor();
+        $oldValueArr = getFormValue();
+        initShowGotoBCR();
+    }
+    
+    $(function(){
+        if('view' == actionType)
+        {
+            jQuery.get("/bugfree3.0.3/index.php/search/getPreNextId",
+            {'id':6,'type':$infoType,'product_id':productId}, function (data, textStatus){
+                if('success' == textStatus)
+                {
+                    $('span#preNextSpan').html(data);
+                }
+            });
+        }
+    })
+</script>
+<link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/green.css" />
+<link rel="shortcut icon" href="/bugfree3.0.3/favicon_green.ico" type="image/x-icon" />
+<title>Case #6 case1</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="en" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/form.css" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/bugfree3_basic.css" />
+                                        <script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/overlib.js"></script>
+        <script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/main.js"></script>
+        <title>BugFree</title>
+    </head>
+    <body>
+        <div id="edit-top-bar" >
+    <div id="logo">
+        <a href="/bugfree3.0.3/index.php/case/list/1">
+            <img src="/bugfree3.0.3/themes/classic/assets/images/green/logo.png" alt="BugFree" title="BugFree"/>
+        </a>
+    </div>
+    <div id="buttonlist">
+        <span id="preNextSpan"><input onclick="$needToConfirm = false;location.href=&quot;/bugfree3.0.3/index.php/case/&quot;" class="btn" disabled="disabled" accesskey="P" name="yt0" type="button" value="上一个(P)" /><input onclick="$needToConfirm = false;location.href=&quot;/bugfree3.0.3/index.php/case/&quot;" class="btn" disabled="disabled" accesskey="N" name="yt1" type="button" value="下一个(N)" /></span>&nbsp;&nbsp;&nbsp;&nbsp;<input onclick="$needToConfirm = false;location.href=&quot;/bugfree3.0.3/index.php/case/6/opened_edit&quot;" class="btn" accesskey="E" name="yt2" type="button" value="编辑(E)" /><input onclick="$needToConfirm = false;location.href=&quot;/bugfree3.0.3/index.php/info/edit?type=case&amp;action=opened&amp;source_id=6&quot;" class="btn" accesskey="C" name="yt3" type="button" value="复制(C)" /><input onclick="$needToConfirm = false;openWindow(&quot;/bugfree3.0.3/index.php/info/edit?type=result&amp;action=opened&amp;case_id=6&quot;,&quot;_blank&quot;)" class="btn" accesskey="R" name="yt4" type="button" value="运行(R)" /><input onclick="$needToConfirm = false;openWindow(&quot;/bugfree3.0.3/index.php/info/edit?type=result&amp;action=opened&amp;case_id=6&amp;step_run=1&quot;,&quot;_blank&quot;)" class="btn" accesskey="S" name="yt5" type="button" value="按步运行(S)" />    </div>
+</div>
+
+
+
+        <div id="editmain">
+    <div class="form">
+
+<form enctype="multipart/form-data" id="case-info-form" action="/bugfree3.0.3/index.php/case/6" method="post">        <div>
+        <div style="float: left;">
+        <div class="row">
+		<label style="padding-left:5px;" for="CaseInfoView_title">Case 标题</label>                <input style="width:580px;" readonly="readonly" class="readonly_field" title="case1" name="CaseInfoView[title]" id="CaseInfoView_title" type="text" maxlength="255" value="case1" />	</div>
+        <div class="row">
+		<label style="padding-left:5px;" for="CaseInfoView_module_name">模块路径</label>                <input style="width:580px;" readonly="readonly" class="readonly_field" title="Sample Product" name="CaseInfoView[module_name]" id="CaseInfoView_module_name" type="text" value="Sample Product" />	</div>
+        </div>
+        <div class="info_id"><span id="span_info_id">6</span></div>
+        </div>
+        <div style="clear:both;">
+            <fieldset style="width: 32%;float: left;">
+                <legend>常规</legend>
+                <div class="row">
+                    <label for="CaseInfoView_case_status">状态</label>                    Active                </div>
+                <div class="row">
+                    <label for="CaseInfoView_assign_to">指派给</label>                    user1                </div>
+                <div class="row">
+                    <label for="CaseInfoView_mail_to">抄送给</label>                    <input readonly="readonly" class="info_input readonly_field" title="" name="CaseInfoView[mail_to]" id="CaseInfoView_mail_to" type="text" value="" />                </div>
+                <div class="row">
+                    <label for="CaseInfoView_priority">优先级</label>                    1                </div>
+                <div class="row"><label style="font-weight:normal;" class="" for="Custom_CaseType">类型</label><input readonly="readonly" class="info_input readonly_field" title="功能" type="text" value="功能" name="Custom[CaseType]" id="Custom_CaseType" /></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_CaseMethod">测试方法</label><input readonly="readonly" class="info_input readonly_field" title="自动化脚本" type="text" value="自动化脚本" name="Custom[CaseMethod]" id="Custom_CaseMethod" /></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_CasePlan">测试计划</label><input readonly="readonly" class="info_input readonly_field" title="" type="text" value="" name="Custom[CasePlan]" id="Custom_CasePlan" /></div>                <div class="row">
+                    <label for="CaseInfoView_updated_by">修改者</label>                    user1                </div>
+                <div class="row">
+                    <label for="CaseInfoView_updated_at">修改日期</label>                    2019-05-27                </div>
+            </fieldset>
+            <div style="float: left;width: 33%">
+            <fieldset>
+                <legend>新建</legend>
+                <div class="row">
+                    <label for="CaseInfoView_created_by">创建者</label>                    user1                </div>
+                <div class="row">
+                    <label for="CaseInfoView_created_at">创建日期</label>                    2019-05-27                </div>
+                            </fieldset>
+            <fieldset>
+                <legend>自动化脚本</legend>
+                <div class="row"><label style="font-weight:normal;" class="" for="Custom_ScriptStatus">脚本状态</label><input readonly="readonly" class="info_input readonly_field" title="" type="text" value="" name="Custom[ScriptStatus]" id="Custom_ScriptStatus" /></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_ScriptedBy">编写者</label><input readonly="readonly" class="info_input readonly_field" title="" type="text" value="" name="Custom[ScriptedBy]" id="Custom_ScriptedBy" /></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_ScriptedDate">编写日期</label><input readonly="readonly" class="info_input readonly_field" title="" type="text" value="" name="Custom[ScriptedDate]" id="Custom_ScriptedDate" /></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_ScriptLocation">脚本地址</label><input readonly="readonly" class="info_input readonly_field" title="" type="text" value="" name="Custom[ScriptLocation]" id="Custom_ScriptLocation" /></div>            </fieldset>
+            </div>
+            <div style="float:right;width: 33%;">
+                <fieldset>
+                <legend>其它信息</legend>
+                <div class="row">
+                    <label for="CaseInfoView_delete_flag">标记删除</label>                    否                </div>
+                <div class="row"><label style="font-weight:normal;" class="" for="Custom_CaseKeyword">关键词</label><input readonly="readonly" class="info_input readonly_field" title="" type="text" value="" name="Custom[CaseKeyword]" id="Custom_CaseKeyword" /></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_DisplayOrder">显示顺序</label><input readonly="readonly" class="info_input readonly_field" title="0" type="text" value="0" name="Custom[DisplayOrder]" id="Custom_DisplayOrder" /></div>            </fieldset>
+            <fieldset>
+                <legend>Case 相关</legend>
+                                <div class="row">
+                    <label for="CaseInfoView_related_bug">相关 Bug</label>                                    </div>
+
+                <div class="row">
+                    <label for="CaseInfoView_related_case">相关 Case</label>                                    </div>
+
+                <div class="row">
+                    <label for="CaseInfoView_related_result">相关 Result</label>                                    </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>附件</legend>
+                <div id="uploaded_file" style="word-break:break-all;"></div>             </fieldset>
+            </div>
+            </div>
+             <div style="clear:both;">
+                <fieldset style ="width:460px;float: left;word-break:break-all;word-wrap:break-word;">
+                    <legend>注释</legend>
+                    <dl style="clear:both;text-align:left;margin:6px 3px;padding:0;"><dd style="float:left;margin:5px 0 0 4px;">2019-05-27 17:16:05&nbsp;<strong>新建</strong> by <strong>user1</strong></dd></dl>                </fieldset>
+                <fieldset style="width:460px;float: right;">
+                    <legend>步骤</legend>
+                    <div class="row" style="width: 460px;overflow-x: auto;word-break:break-all;word-wrap:break-word;">
+                        [步骤]<br />
+1.ccccccccccc<br />
+2.<br />
+<br />
+[验证]<br />
+<br />
+[备注]<br />
+<br />                    </div>
+                </fieldset>
+             </div>
+</form>
+</div><!-- form -->    </div>
+<div id="template_dialog">
+<table class="dialog-table">
+                  <tbody>
+                  <tr>
+                    <td style="text-align:center" >模板标题&nbsp;&nbsp;<input type="text" maxlength=20 id="dialogTemplateTitle" value=""/><br/><br/></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center" ><input onclick="saveTemplate($(&quot;#dialogTemplateTitle&quot;).val());" name="yt6" type="button" value="保存" /></td>
+                  </tr>
+                </tbody></table></div>    <script type="text/javascript" src="/bugfree3.0.3/assets/50038a0d/jui/js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+jQuery('#template_dialog').dialog({'title':'另存为模板','autoOpen':false,'width':'400px','modal':true,'height':'auto','resizable':false});
+});
+/*]]>*/
+</script>
+</body>
+</html>
+
+
+    </body>
+</html>

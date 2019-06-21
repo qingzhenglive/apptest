@@ -1,0 +1,23 @@
+[t1]
+FileName2=t1_4_bugfree3.png
+FileName5=t1_1_bugfree3.UNK
+FileName4=t1_2_bugfree3.css
+FileName6=t1_0_bugfree3.css
+RequestBodyFile=t1_RequestBody.txt
+ContentType=text/html
+URL1=http://10.7.90.119:8032/bugfree3.0.3/index.php/site/login/
+URL2=http://10.7.90.119:8032/bugfree3.0.3/themes/classic/assets/images/blue/logo_login.png
+URL3=http://10.7.90.119:8032/bugfree3.0.3/themes/classic/assets/images/blue/seperate_line.png
+ResponseHeaderFile=t1_ResponseHeader.txt
+URL4=http://10.7.90.119:8032/bugfree3.0.3/themes/classic/assets/css/bugfree3_basic.css
+URL5=http://10.7.90.119:8032/bugfree3.0.3/assets/50038a0d/jquery.min.js
+URL6=http://10.7.90.119:8032/bugfree3.0.3/themes/classic/assets/css/blue.css
+SnapshotXmlFile=snapshot_1.xml
+RequestHeaderFile=t1_RequestHeader.txt
+SaveSnapshotResources=1
+Total=6
+StepName=Url: login
+FileName1=t1.html
+FileName3=t1_3_bugfree3.png
+[AdditionalInfo]
+IsIgnorable=1

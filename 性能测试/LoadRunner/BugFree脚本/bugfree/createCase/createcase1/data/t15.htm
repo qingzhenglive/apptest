@@ -1,0 +1,472 @@
+<script language='Javascript'>try{
+var parentWin=window.parent;
+var openerWin=parentWin.opener;
+var indexWin=openerWin.parent;
+indexWin.location.href=indexWin.location.href;
+}
+catch(e){}</script><script language='Javascript'>parent.location='/bugfree3.0.3/index.php/case/6';</script><script language='Javascript'>parent.location='/bugfree3.0.3/index.php/case/6';</script><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="en" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/form.css" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/bugfree3_basic.css" />
+                                        <script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/overlib.js"></script>
+        <script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/assets/93d21f33/thickbox.css" />
+<link rel="stylesheet" type="text/css" href="/bugfree3.0.3/assets/93d21f33/jquery.autocomplete.css" />
+<link rel="stylesheet" type="text/css" href="/bugfree3.0.3/assets/50038a0d/jui/css/base/jquery-ui.css" />
+<script type="text/javascript" src="/bugfree3.0.3/assets/50038a0d/jquery.min.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/assets/50038a0d/jquery.multifile.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/assets/50038a0d/jquery.bgiframe.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/assets/93d21f33/jquery.ajaxQueue.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/assets/93d21f33/jquery.cookie.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/assets/93d21f33/json2.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/assets/93d21f33/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/assets/8e4d999e/kindeditor-min.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/assets/8e4d999e/lang/zh_CN.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/assets/8e4d999e/plugins/preview/preview.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/jquery.form.js"></script>
+</head>
+    <body>
+        <script type="text/javascript">
+    $needToConfirm = true;
+    var $oldValueArr = new Array();
+    var $infoType = 'case';
+    var $baseUrl = '/bugfree3.0.3'
+    var $modelName = 'CaseInfoView';
+    var pageDirtyValue = 1;
+    var actionType = 'opened';
+    var productId = 1;
+    function confirmWhenExit()
+    {
+        if($needToConfirm == true)
+        {
+            try{
+                repeat_step_editor.sync();
+            }catch(e){};
+            action_note_editor.sync();
+            $newValueArr = getFormValue();
+            if(isPageDirty($oldValueArr,$newValueArr))
+            {
+                return '如果您离开本页面，您所做的更改将会丢失。';
+            }
+        }      
+    }
+    function getChildModule($parentId)
+    {
+        $productModuleId = $('select.product_module').attr('id');
+        jQuery.get("/bugfree3.0.3/index.php/search/getChildModuleSelect", {'parent_id':$parentId,'type':$infoType}, function (data, textStatus){
+            if('success' == textStatus)
+            {
+                $('#'+$productModuleId).replaceWith(data);
+                setAssignTo($infoType);
+            }
+        });
+    }
+    function submitForm()
+    {
+        $('div#buttonlist input.btn').attr('disabled','disabled');
+        try{
+            repeat_step_editor.sync();
+        }catch(e){};   
+        action_note_editor.sync();
+        if(1 == pageDirtyValue)
+        {
+            $('#isPageDirty').val(1);
+        }
+        else
+        {
+            $newValueArr = getFormValue();
+            if(isPageDirty($oldValueArr,$newValueArr))
+            {
+                $('#isPageDirty').val(1);
+            }
+        }       
+        document.forms[0].submit();
+    }
+
+    function saveTemplate($title)
+    {
+        $title = jQuery.trim($title);
+        $titleLength = $title.length;
+        if($titleLength<1 || $titleLength>20)
+        {
+            alert('标题长度必须为 1~20');
+            return;
+        }
+        jQuery.get("/bugfree3.0.3/index.php/search/checkTemplate", {'title':$title,'type':$infoType,'product_id':productId}, function (data, textStatus){
+            if('success' == textStatus)
+            {
+                if(('' != data)&&(!confirm('确定修改模板'+' '+$title+'?')))
+                {
+                    return false;
+                }
+                else
+                {
+                    $('#templateTitle').attr('value',$title);
+                    $("#template_dialog").dialog("close");
+                    document.forms[0].submit();
+                }
+
+            }
+        });
+        return false;
+    }
+    function deleteFile($id)
+    {
+        if(!confirm('确认删除?'))
+        {
+            return;
+        }
+        else
+        {
+            $('#'+$modelName+'_deleted_file_id').val($('#'+$modelName+'_deleted_file_id').val()+','+$id);
+            $('#file'+$id).remove();
+        }
+    }
+    function isPageDirty($oldValueArr,$newValueArr)
+    {
+        if('' != $('.deleted_file_id_class').val())
+        {
+            return true;
+        }
+        for(var $id in $newValueArr)
+        {
+            if(($id != undefined)&&($id != 'undefined') &&($newValueArr[$id] != undefined) &&
+                ($oldValueArr[$id] != undefined) && ($newValueArr[$id] != $oldValueArr[$id]))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function getFormValue()
+    {
+        $returnValueArr = new Array();
+        var $multiSelectElements = $('a.multiSelect');
+        $multiSelectElements.each(function(){
+            $id = $(this).attr('id');
+            $value = $(this).find('span').text();
+            $returnValueArr[$id] = $value;
+        })
+        var $pageInputElements = $('form :input');
+        $pageInputElements.each(function(){
+            $type = $(this).attr('type');
+            $id = $(this).attr('id');
+            $value = $(this).val();
+            if('hidden' == $type)
+            {
+                $hiddenId = $(this).attr('id');
+                if('ResultInfoView_result_step' == $hiddenId)
+                {
+                    $returnValueArr[$id] = $(this).val();
+                }
+            }
+            else if('checkbox' == $type)
+            {
+                $name = $(this).attr('name');
+                if('checked' == $(this).attr('checked'))
+                {
+                    if($returnValueArr[$name] == undefined)
+                    {
+                        $returnValueArr[$name] = $value;
+                    }
+                    else
+                    {
+                        $returnValueArr[$name] += ','+$value;
+                    }
+                }
+
+            }
+            else
+            {
+                $returnValueArr[$id] = $(this).val();
+            }
+        });
+        return $returnValueArr;
+    }
+    function setAssignTo($type)
+    {
+        if('result' == $type)
+        {
+            return;
+        }
+        $idPrefix = '';
+        if('bug' == $type)
+        {
+            $idPrefix = 'BugInfoView_';
+        }
+        else if('case' == $type)
+        {
+            $idPrefix = 'CaseInfoView_';
+        }
+        $moduleId = $('#'+$idPrefix+'productmodule_id').val();
+        jQuery.get("/bugfree3.0.3/index.php/search/getModuleOwner", {'module_id':$moduleId}, function (data, textStatus){
+            if('success' == textStatus)
+            {
+                if('' != data)
+                {
+                    $('#'+$idPrefix+'assign_to_name').val(data);
+                }
+            }
+        });
+    }
+    
+    function setDefaultCursor()
+    {
+        $('div#buttonlist .btn').each(function(){
+            if('disabled' == $(this).attr('disabled'))
+                {
+                    $(this).css('cursor','default');
+                }
+        })
+    }
+    window.onload = function()
+    {
+        setDefaultCursor();
+        $oldValueArr = getFormValue();
+        initShowGotoBCR();
+    }
+    
+    $(function(){
+        if('view' == actionType)
+        {
+            jQuery.get("/bugfree3.0.3/index.php/search/getPreNextId",
+            {'id':0,'type':$infoType,'product_id':productId}, function (data, textStatus){
+                if('success' == textStatus)
+                {
+                    $('span#preNextSpan').html(data);
+                }
+            });
+        }
+    })
+</script>
+<link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/green.css" />
+<link rel="shortcut icon" href="/bugfree3.0.3/favicon_green.ico" type="image/x-icon" />
+<title>Case # case1</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="en" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/form.css" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/bugfree3_basic.css" />
+                                        <script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/overlib.js"></script>
+        <script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/main.js"></script>
+        <title>BugFree</title>
+    </head>
+    <body>
+        <div id="edit-top-bar" >
+    <div id="logo">
+        <a href="/bugfree3.0.3/index.php/case/list/1">
+            <img src="/bugfree3.0.3/themes/classic/assets/images/green/logo.png" alt="BugFree" title="BugFree"/>
+        </a>
+    </div>
+    <div id="buttonlist">
+        <input onclick="$needToConfirm = false;submitForm();" class="btn" accesskey="S" name="yt0" type="button" value="保存(S)" />&nbsp;&nbsp;<input onclick="$needToConfirm = false;$(&quot;#template_dialog&quot;).dialog(&quot;open&quot;); return false;" class="btn" style="width:120px;" accesskey="T" name="yt1" type="button" value="另存为模板(T)" />    </div>
+</div>
+
+
+
+        <div id="editmain">
+    <script type="text/javascript">
+    window.onbeforeunload = confirmWhenExit;
+</script>
+<div class="form">
+
+<form enctype="multipart/form-data" id="case-info-form" action="/bugfree3.0.3/index.php/info/edit?type=case&amp;action=opened&amp;product_id=1" method="post">	        <input value="" class="deleted_file_id_class" name="CaseInfoView[deleted_file_id]" id="CaseInfoView_deleted_file_id" type="hidden" />        <input value="" name="CaseInfoView[lock_version]" id="CaseInfoView_lock_version" type="hidden" /><input name="CaseInfoView[product_id]" id="CaseInfoView_product_id" type="hidden" value="1" />        <input type="hidden" value="" name="isPageDirty" id="isPageDirty" />        <input type="hidden" value="" name="templateTitle" id="templateTitle" />        <div>
+        <div style="float: left;">
+        <div class="row">
+		<label style="padding-left:5px;" for="CaseInfoView_title">Case 标题</label>		<input style="width:580px;" maxlength="255" class="required" name="CaseInfoView[title]" id="CaseInfoView_title" type="text" value="case1" />	</div>
+        <div class="row">
+		<label style="padding-left:5px;" for="CaseInfoView_productmodule_id">模块路径</label>                <select style="width:180px;" class="required" onchange="getChildModule($(this).val())" name="layer1_module" id="layer1_module">
+<optgroup label="Sample Product">
+<option value="0" selected="selected">Sample Product/</option>
+</optgroup>
+</select><select style="width:400px;" class="product_module" id="CaseInfoView_productmodule_id" onchange="setAssignTo(&#039;case&#039;)" name="CaseInfoView[productmodule_id]">
+<option value="0" selected="selected">/</option>
+</select>	</div>
+        </div>
+        <div class="info_id">
+            <span id="span_info_id">
+                新建Case            </span>
+        </div>
+        </div>
+        <div style="clear:both;">
+            <fieldset style="width: 32%;float: left;">
+                <legend>常规</legend>
+                <div class="row">
+                    <label for="CaseInfoView_case_status">状态</label>                    <input name="CaseInfoView[case_status]" id="CaseInfoView_case_status" type="hidden" value="Active" />Active                </div>
+                <div class="row">
+                    <label for="CaseInfoView_assign_to_name">指派给</label>                    <input class="info_input required" name="CaseInfoView[assign_to_name]" id="CaseInfoView_assign_to_name" type="text" value="user1" />                </div>
+                <div class="row">
+                    <label for="CaseInfoView_mail_to">抄送给</label>                    <input class="info_input" name="CaseInfoView[mail_to]" id="CaseInfoView_mail_to" type="text" value="" />                </div>
+                <div class="row">
+                    <label for="CaseInfoView_priority">优先级</label>                    <select class="info_input required" style="width:190px;" name="CaseInfoView[priority]" id="CaseInfoView_priority">
+<option value=""></option>
+<option value="1" selected="selected">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+</select>                </div>
+                <div class="row"><label style="font-weight:normal;" class="" for="Custom_CaseType">类型</label><select id="Custom_CaseType" style="width:190px;" class="required info_input" name="Custom[CaseType]">
+<option value=""></option>
+<option value="功能" selected="selected">功能</option>
+<option value="配置相关">配置相关</option>
+<option value="安装部署">安装部署</option>
+<option value="安全相关">安全相关</option>
+<option value="性能压力">性能压力</option>
+<option value="其他">其他</option>
+</select></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_CaseMethod">测试方法</label><select id="Custom_CaseMethod" style="width:190px;" class="required info_input" name="Custom[CaseMethod]">
+<option value=""></option>
+<option value="手动执行">手动执行</option>
+<option value="自动化脚本" selected="selected">自动化脚本</option>
+</select></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_CasePlan">测试计划</label><select id="Custom_CasePlan" style="width:190px;" class=" info_input" name="Custom[CasePlan]">
+<option value="" selected="selected"></option>
+<option value="功能测试">功能测试</option>
+<option value="单元测试">单元测试</option>
+<option value="版本验证测试">版本验证测试</option>
+<option value="集成测试">集成测试</option>
+<option value="系统测试">系统测试</option>
+<option value="冒烟测试">冒烟测试</option>
+<option value="验收测试">验收测试</option>
+</select></div>                <div class="row">
+                    <label for="CaseInfoView_updated_by">修改者</label>                                    </div>
+                <div class="row">
+                    <label for="CaseInfoView_updated_at">修改日期</label>                                    </div>
+            </fieldset>
+            <div style="float: left;width: 33%">
+            <fieldset>
+                <legend>新建</legend>
+                <div class="row">
+                    <label for="CaseInfoView_created_by">创建者</label>                    user1                </div>
+                <div class="row">
+                    <label for="CaseInfoView_created_at">创建日期</label>                    2019-05-27                </div>
+                            </fieldset>
+            <fieldset>
+                <legend>自动化脚本</legend>
+                <div class="row"><label style="font-weight:normal;" class="" for="Custom_ScriptStatus">脚本状态</label><select id="Custom_ScriptStatus" style="width:190px;" class=" info_input" name="Custom[ScriptStatus]">
+<option value="" selected="selected"></option>
+<option value="未计划">未计划</option>
+<option value="计划">计划</option>
+<option value="被阻止">被阻止</option>
+<option value="正在编写">正在编写</option>
+<option value="已完成">已完成</option>
+<option value="已评审">已评审</option>
+</select></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_ScriptedBy">编写者</label><input class=" info_input" type="text" value="" name="Custom[ScriptedBy]" id="Custom_ScriptedBy" /></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_ScriptedDate">编写日期</label><input class=" info_input" id="Custom_ScriptedDate" name="Custom[ScriptedDate]" type="text" value="" /></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_ScriptLocation">脚本地址</label><input class=" info_input" type="text" value="" id="Custom_ScriptLocation" name="Custom[ScriptLocation]"></div>            </fieldset>
+            </div>
+            <div style="float:right;width: 33%;">
+                <fieldset>
+                <legend>其它信息</legend>
+                 <div class="row">
+                    <label for="CaseInfoView_delete_flag">标记删除</label>                    否                </div>
+                <div class="row"><label style="font-weight:normal;" class="" for="Custom_CaseKeyword">关键词</label><input class=" info_input" type="text" value="" id="Custom_CaseKeyword" name="Custom[CaseKeyword]"></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_DisplayOrder">显示顺序</label><input class=" info_input" type="text" value="0" id="Custom_DisplayOrder" name="Custom[DisplayOrder]"></div>            </fieldset>
+            <fieldset>
+                <legend>Case 相关</legend>
+                                <div class="row">
+                    <label for="CaseInfoView_related_bug">相关 Bug</label>                    <input class="info_input" maxlength="255" name="CaseInfoView[related_bug]" id="CaseInfoView_related_bug" type="text" value="" />                </div>
+
+                <div class="row">
+                    <label for="CaseInfoView_related_case">相关 Case</label>                    <input class="info_input" maxlength="255" name="CaseInfoView[related_case]" id="CaseInfoView_related_case" type="text" value="" />                </div>
+
+                <div class="row">
+                    <label for="CaseInfoView_related_result">相关 Result</label>                                    </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    附件(2MB)                </legend>
+                                <input size="16" id="attachment_file" type="file" value="" name="attachment_file[]" />             </fieldset>
+            </div>
+            </div>
+             <div style="clear:both;">
+                <fieldset class="action_note" style="width:460px;">
+                    <legend>注释</legend>
+                    <div class="row" style="overflow: auto;padding: 2px;">
+                        <textarea style="width:100px;" name="CaseInfoView[action_note]" id="CaseInfoView_action_note"></textarea>                    </div>
+                                    </fieldset>
+                <fieldset style="width: 460px;float: right;">
+                    <legend>步骤</legend>
+                    <div class="row">
+                        <textarea style="width:100px;" name="CaseInfoView[case_step]" id="CaseInfoView_case_step">[步骤]&lt;br /&gt;
+1.ccccccccccc&lt;br /&gt;
+2.&lt;br /&gt;
+&lt;br /&gt;
+[验证]&lt;br /&gt;
+&lt;br /&gt;
+[备注]&lt;br /&gt;
+&lt;br /&gt;</textarea>                    </div>
+                </fieldset>
+
+
+             </div>
+</form>
+</div><!-- form -->    </div>
+<div id="template_dialog">
+<table class="dialog-table">
+                  <tbody>
+                  <tr>
+                    <td style="text-align:center" >模板标题&nbsp;&nbsp;<input type="text" maxlength=20 id="dialogTemplateTitle" value=""/><br/><br/></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center" ><input onclick="saveTemplate($(&quot;#dialogTemplateTitle&quot;).val());" name="yt2" type="button" value="保存" /></td>
+                  </tr>
+                </tbody></table></div>    <script type="text/javascript" src="/bugfree3.0.3/assets/50038a0d/jui/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/assets/50038a0d/jui/js/jquery-ui-i18n.min.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+$("#Custom_ScriptedBy").autocompleter('/bugfree3.0.3/index.php/search/userList', {
+                    multiple: false
+                });
+jQuery('#Custom_ScriptedDate').datepicker(jQuery.extend({showMonthAfterYear:false}, jQuery.datepicker.regional['zh_cn'], {'dateFormat':'yy-mm-dd'}));
+$("#CaseInfoView_assign_to_name").autocompleter('/bugfree3.0.3/index.php/search/userList?p=-1', {});
+$("#CaseInfoView_mail_to").autocompleter('/bugfree3.0.3/index.php/search/userList', {multiple:true});
+jQuery("#attachment_file").MultiFile({'accept':'','STRING':{'remove':'<img src=\"/bugfree3.0.3/themes/classic/assets/images/deletefile.gif\" alt=\"remove\" />'}});
+window.kindeditor_CaseInfoView_action_note;
+                    KindEditor.ready(function(K) {
+                                action_note_editor=K.create('#CaseInfoView_action_note',{resizeType : 0,
+                uploadJson : '/bugfree3.0.3/assets/8e4d999e/php/upload_json.php',
+		fileManagerJson : '../php/file_manager_json.php',
+		allowFileManager : true,
+                width : '99%',
+                newlineTag : 'br',height : '200px',items : ['undo', 'redo', '|', 'cut', 'copy', 'paste',
+        'plainpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+        'justifyfull', 'insertorderedlist', 'insertunorderedlist', '|', 'fullscreen', '/',
+        'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+        'italic', 'underline', 'strikethrough',  '|', 'image',
+        'table', 'hr', 'code', 'link', 'unlink', 'about']
+            });
+                                action_note_editor.sync();
+                        });
+window.kindeditor_CaseInfoView_case_step;
+                    KindEditor.ready(function(K) {
+                                repeat_step_editor=K.create('#CaseInfoView_case_step',{resizeType : 0,
+                uploadJson : '/bugfree3.0.3/assets/8e4d999e/php/upload_json.php',
+		fileManagerJson : '../php/file_manager_json.php',
+		allowFileManager : true,
+                width : '99%',
+                newlineTag : 'br',height : '300px',items : ['undo', 'redo', '|', 'cut', 'copy', 'paste',
+        'plainpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+        'justifyfull', 'insertorderedlist', 'insertunorderedlist', '|', 'fullscreen', '/',
+        'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+        'italic', 'underline', 'strikethrough',  '|', 'image',
+        'table', 'hr', 'code', 'link', 'unlink', 'about']
+            });
+                                repeat_step_editor.sync();
+                        });
+jQuery('#template_dialog').dialog({'title':'另存为模板','autoOpen':false,'width':'400px','modal':true,'height':'auto','resizable':false});
+});
+/*]]>*/
+</script>
+</body>
+</html>
+
+
+    </body>
+</html>

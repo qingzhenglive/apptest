@@ -1,0 +1,360 @@
+[Network Analyzer (7220:7498)] ------------------------------------------------------------------------------------------
+[Network Analyzer (7220:7498)] Load Network Traffic Analyzers:
+[Network Analyzer (7220:7498)]     Analyzer Module: WPLUS (value=)
+[Network Analyzer (7220:7498)]     Analyzer Module: WebBase (value=GetHttpProtocolAnalyzer:api_http_filter.dll)
+[Network Analyzer (7220:7498)]     + Network Analyzer: api_http_filter.dll @ GetHttpProtocolAnalyzer Loaded!
+[Network Analyzer (7220:7498)]     + Interception Auditors: WinInetWplusInterceptionAudit:api_http_filter.dll
+[Network Analyzer (7220:7498)]     Analyzer Module: QTWeb (value=)
+[Network Analyzer (7220:7498)]     Analyzer Module: local_server (value=)
+[Network Analyzer (7220:7498)] ------------------------------------------------------------------------------------------
+[Network Analyzer (7220:7550)] Address lookup for hebeishi-b4684a = 10.0.2.15
+[Network Analyzer (7220:755c)] Address lookup for hebeishi-b4684a = 10.0.2.15
+[Network Analyzer (7220:755c)] Request Connection: Remote Server @ 10.7.90.119:8032   (Service=)  (Sid=  1)  PROXIED!
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/index.php/site/login/"   
+[Network Analyzer (7220:7550)]   (Sid:  1) Client -> Server : 952 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  1) Server -> Client : 1754 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jquery.min.js"   
+[Network Analyzer (7220:7550)]   (Sid:  1) Client -> Server : 1067 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  1) Server -> Client : 4260 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  1) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  1) Server -> Client : 11657 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/css/blue.css"   
+[Network Analyzer (7220:7550)]   (Sid:  1) Client -> Server : 1072 bytes (Service=HTTP)
+[Network Analyzer (7220:755c)] Address lookup for hebeishi-b4684a = 10.0.2.15
+[Network Analyzer (7220:7550)]   (Sid:  1) Server -> Client : 723 bytes  (Service=HTTP)
+[Network Analyzer (7220:755c)] Request Connection: Remote Server @ 10.7.90.119:8032   (Service=)  (Sid=  2)  PROXIED!
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/css/bugfree3_basic.css"   
+[Network Analyzer (7220:7550)]   (Sid:  2) Client -> Server : 1082 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  2) Server -> Client : 2823 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/blue/seperate_line.png"   
+[Network Analyzer (7220:7550)]   (Sid:  1) Client -> Server : 1089 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/blue/logo_login.png"   
+[Network Analyzer (7220:7550)]   (Sid:  2) Client -> Server : 1086 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  1) Server -> Client : 431 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  2) Server -> Client : 2335 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  1) Connection Terminated (by Server)
+[Network Analyzer (7220:7550)]   (Sid:  2) Connection Terminated (by Server)
+[Network Analyzer (7220:7564)] Address lookup for hebeishi-b4684a = 10.0.2.15
+[Network Analyzer (7220:7564)] Request Connection: Remote Server @ 10.7.90.119:8032   (Service=)  (Sid=  3)  PROXIED!
+[Web Request      (7220:7550)] "POST /bugfree3.0.3/index.php/site/login/"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1433 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 714 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/index.php"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1232 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 429 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/index.php/bug/list/1"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1243 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 12212 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/css/form.css"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1071 bytes (Service=HTTP)
+[Network Analyzer (7220:7564)] Address lookup for hebeishi-b4684a = 10.0.2.15
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 1041 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/js/overlib.js"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1072 bytes (Service=HTTP)
+[Network Analyzer (7220:7564)] Request Connection: Remote Server @ 10.7.90.119:8032   (Service=)  (Sid=  4)  PROXIED!
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 9940 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/css/style.css"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1072 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 5089 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 1093 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/js/main.js"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1069 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 1137 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/bc55afbf/zTreeStyle.css"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1067 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/93d21f33/thickbox.css"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1065 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 1601 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 1383 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/93d21f33/jquery.autocomplete.css"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1076 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/css/base/jquery-ui.css"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1079 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 777 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 4999 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jquery.bgiframe.js"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1071 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 1125 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/bc55afbf/jquery.ztree.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1068 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 7100 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 11066 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/93d21f33/jquery.ajaxQueue.js"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1072 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 1344 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/93d21f33/jquery.cookie.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1069 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 1053 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/93d21f33/json2.js"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1061 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 5764 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/93d21f33/jquery.autocomplete.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1075 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 7788 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/js/jquery.tools.min.js"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1081 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 4900 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/js/jquery.form.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1076 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 9467 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/blue/logo.png"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1079 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/add.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1073 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 1705 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 368 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/create_down.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1081 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/close_div.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1079 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 397 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 376 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/add_search.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1080 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/late_left.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1079 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 368 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 842 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/flag_1.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1076 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/js/jquery-ui.min.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1076 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 448 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 16384 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/down.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1074 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 345 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/active.png"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1076 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 507 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 2784 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images//close_div.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1080 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 376 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1219 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png"   
+[Network Analyzer (7220:7550)]   (Sid:  3) Client -> Server : 1113 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Server -> Client : 376 bytes  (Service=HTTP)
+[Network Analyzer (7220:7564)] Address lookup for hebeishi-b4684a = 10.0.2.15
+[Network Analyzer (7220:7564)] Request Connection: Remote Server @ 10.7.90.119:8032   (Service=)  (Sid=  5)  PROXIED!
+[Web Request      (7220:7550)] "POST /bugfree3.0.3/index.php/search/getProductModule"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 31 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1104 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 366 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  3) Connection Terminated (by Client)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-icons_222222_256x240.png"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1100 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 4093 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 502 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1113 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1113 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 376 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 376 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1104 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-icons_222222_256x240.png"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1100 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 365 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 4093 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/bc55afbf/img/page.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1065 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 866 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/index.php/case/list/1"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1218 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 11823 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/css/green.css"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1073 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/green/logo.png"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1081 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 739 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 1746 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/cancel_search.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1084 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 360 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/js/ajaxfileupload.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1080 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 2408 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/flag_0.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1077 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/loading.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1078 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 499 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 714 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1220 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "POST /bugfree3.0.3/index.php/search/getProductModule"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 31 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 502 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/index.php/info/edit?type=case&action=opened&product_id=1"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1094 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 5665 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/css/form.css"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1170 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/css/style.css"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1171 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 188 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 188 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/css/bugfree3_basic.css"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1180 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/js/overlib.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1172 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 189 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 189 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/js/main.js"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1168 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 188 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/93d21f33/thickbox.css"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1164 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/93d21f33/jquery.autocomplete.css"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1174 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 188 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 188 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/css/base/jquery-ui.css"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1179 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jquery.min.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1166 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 189 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 190 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jquery.multifile.js"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1108 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 6537 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jquery.bgiframe.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1170 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 188 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/93d21f33/jquery.ajaxQueue.js"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1171 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 188 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/93d21f33/jquery.cookie.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1168 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 188 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/93d21f33/json2.js"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1161 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 189 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/93d21f33/jquery.autocomplete.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1175 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 189 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/8e4d999e/kindeditor-min.js"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1106 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 12223 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/8e4d999e/lang/zh_CN.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1102 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 3090 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/8e4d999e/plugins/preview/preview.js"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1115 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 907 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/js/jquery.tools.min.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1181 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 189 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/js/jquery.form.js"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1176 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 189 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/css/green.css"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1170 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 188 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/green/logo.png"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1202 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/js/jquery-ui.min.js"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1177 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 188 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 190 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/js/jquery-ui-i18n.min.js"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1117 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 11564 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1225 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 187 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1234 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/50038a0d/jui/css/base/images/ui-icons_222222_256x240.png"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1222 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 187 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 188 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/8e4d999e/themes/default/default.css"   
+[Network Analyzer (7220:7550)]   (Sid:  5) Client -> Server : 1115 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Server -> Client : 3414 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/8e4d999e/themes/default/default.png"   
+[Network Analyzer (7220:7550)]   (Sid:  4) Client -> Server : 1115 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  4) Server -> Client : 8685 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  5) Connection Terminated (by Server)
+[Network Analyzer (7220:7550)]   (Sid:  4) Connection Terminated (by Server)
+[Network Analyzer (7220:7564)] Address lookup for hebeishi-b4684a = 10.0.2.15
+[Network Analyzer (7220:7564)] Request Connection: Remote Server @ 10.7.90.119:8032   (Service=)  (Sid=  6)  PROXIED!
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/93d21f33/indicator.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  6) Client -> Server : 1102 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  6) Server -> Client : 1847 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  6) Connection Terminated (by Server)
+[Network Analyzer (7220:7564)] Address lookup for hebeishi-b4684a = 10.0.2.15
+[Network Analyzer (7220:7564)] Request Connection: Remote Server @ 10.7.90.119:8032   (Service=)  (Sid=  7)  PROXIED!
+[Web Request      (7220:7550)] "POST /bugfree3.0.3/index.php/info/edit?type=case&action=opened&product_id=1"   
+[Network Analyzer (7220:7550)]   (Sid:  7) Client -> Server : 4498 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 554 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 54 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 5244 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/index.php/case/list/1"   
+[Network Analyzer (7220:7550)]   (Sid:  7) Client -> Server : 1150 bytes (Service=HTTP)
+[Network Analyzer (7220:7564)] Address lookup for hebeishi-b4684a = 10.0.2.15
+[Network Analyzer (7220:7564)] Request Connection: Remote Server @ 10.7.90.119:8032   (Service=)  (Sid=  8)  PROXIED!
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 11854 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/index.php/case/6"   
+[Network Analyzer (7220:7550)]   (Sid:  8) Client -> Server : 1145 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/bc55afbf/zTreeStyle.css"   
+[Network Analyzer (7220:7550)]   (Sid:  7) Client -> Server : 1131 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 189 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/bc55afbf/jquery.ztree.js"   
+[Network Analyzer (7220:7550)]   (Sid:  7) Client -> Server : 1133 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 190 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/add.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  7) Client -> Server : 1159 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 187 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  8) Server -> Client : 2840 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  8) Server -> Client : 1710 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/create_down.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  7) Client -> Server : 1167 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 187 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/close_div.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  8) Client -> Server : 1165 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/late_left.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  7) Client -> Server : 1166 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  8) Server -> Client : 187 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 188 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/add_search.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  8) Client -> Server : 1166 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/cancel_search.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  7) Client -> Server : 1169 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  8) Server -> Client : 187 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 187 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/js/ajaxfileupload.js"   
+[Network Analyzer (7220:7550)]   (Sid:  8) Client -> Server : 1143 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  8) Server -> Client : 189 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/flag_1.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  7) Client -> Server : 1162 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/flag_0.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  8) Client -> Server : 1162 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 187 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/loading.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  7) Client -> Server : 1164 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  8) Server -> Client : 187 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 188 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images/down.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  8) Client -> Server : 1160 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  8) Server -> Client : 187 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/themes/classic/assets/images//close_div.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  7) Client -> Server : 1166 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 187 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  8) Client -> Server : 1220 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "POST /bugfree3.0.3/index.php/search/getProductModule"   
+[Network Analyzer (7220:7550)]   (Sid:  8) Client -> Server : 31 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  8) Server -> Client : 502 bytes  (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/index.php/search/getPreNextId?id=6&type=case&product_id=1"   
+[Network Analyzer (7220:7550)]   (Sid:  7) Client -> Server : 1124 bytes (Service=HTTP)
+[Web Request      (7220:7550)] "GET /bugfree3.0.3/assets/bc55afbf/img/page.gif"   
+[Network Analyzer (7220:7550)]   (Sid:  8) Client -> Server : 1152 bytes (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  8) Server -> Client : 188 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  7) Server -> Client : 614 bytes  (Service=HTTP)
+[Network Analyzer (7220:7550)]   (Sid:  8) Connection Terminated (by Server)
+[Network Analyzer (7220:7550)]   (Sid:  7) Connection Terminated (by Server)

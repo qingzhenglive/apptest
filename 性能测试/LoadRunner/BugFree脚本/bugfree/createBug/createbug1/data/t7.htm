@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="en" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/form.css" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/bugfree3_basic.css" />
+                                        <script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/overlib.js"></script>
+        <script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/assets/50038a0d/jui/css/base/jquery-ui.css" />
+<script type="text/javascript" src="/bugfree3.0.3/assets/50038a0d/jquery.min.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/assets/50038a0d/jquery.bgiframe.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/jquery.form.js"></script>
+</head>
+    <body>
+        <script type="text/javascript">
+    $needToConfirm = true;
+    var $oldValueArr = new Array();
+    var $infoType = 'bug';
+    var $baseUrl = '/bugfree3.0.3'
+    var $modelName = 'BugInfoView';
+    var pageDirtyValue = 0;
+    var actionType = 'view';
+    var productId = 1;
+    function confirmWhenExit()
+    {
+        if($needToConfirm == true)
+        {
+            try{
+                repeat_step_editor.sync();
+            }catch(e){};
+            action_note_editor.sync();
+            $newValueArr = getFormValue();
+            if(isPageDirty($oldValueArr,$newValueArr))
+            {
+                return '如果您离开本页面，您所做的更改将会丢失。';
+            }
+        }      
+    }
+    function getChildModule($parentId)
+    {
+        $productModuleId = $('select.product_module').attr('id');
+        jQuery.get("/bugfree3.0.3/index.php/search/getChildModuleSelect", {'parent_id':$parentId,'type':$infoType}, function (data, textStatus){
+            if('success' == textStatus)
+            {
+                $('#'+$productModuleId).replaceWith(data);
+                setAssignTo($infoType);
+            }
+        });
+    }
+    function submitForm()
+    {
+        $('div#buttonlist input.btn').attr('disabled','disabled');
+        try{
+            repeat_step_editor.sync();
+        }catch(e){};   
+        action_note_editor.sync();
+        if(1 == pageDirtyValue)
+        {
+            $('#isPageDirty').val(1);
+        }
+        else
+        {
+            $newValueArr = getFormValue();
+            if(isPageDirty($oldValueArr,$newValueArr))
+            {
+                $('#isPageDirty').val(1);
+            }
+        }       
+        document.forms[0].submit();
+    }
+
+    function saveTemplate($title)
+    {
+        $title = jQuery.trim($title);
+        $titleLength = $title.length;
+        if($titleLength<1 || $titleLength>20)
+        {
+            alert('标题长度必须为 1~20');
+            return;
+        }
+        jQuery.get("/bugfree3.0.3/index.php/search/checkTemplate", {'title':$title,'type':$infoType,'product_id':productId}, function (data, textStatus){
+            if('success' == textStatus)
+            {
+                if(('' != data)&&(!confirm('确定修改模板'+' '+$title+'?')))
+                {
+                    return false;
+                }
+                else
+                {
+                    $('#templateTitle').attr('value',$title);
+                    $("#template_dialog").dialog("close");
+                    document.forms[0].submit();
+                }
+
+            }
+        });
+        return false;
+    }
+    function deleteFile($id)
+    {
+        if(!confirm('确认删除?'))
+        {
+            return;
+        }
+        else
+        {
+            $('#'+$modelName+'_deleted_file_id').val($('#'+$modelName+'_deleted_file_id').val()+','+$id);
+            $('#file'+$id).remove();
+        }
+    }
+    function isPageDirty($oldValueArr,$newValueArr)
+    {
+        if('' != $('.deleted_file_id_class').val())
+        {
+            return true;
+        }
+        for(var $id in $newValueArr)
+        {
+            if(($id != undefined)&&($id != 'undefined') &&($newValueArr[$id] != undefined) &&
+                ($oldValueArr[$id] != undefined) && ($newValueArr[$id] != $oldValueArr[$id]))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function getFormValue()
+    {
+        $returnValueArr = new Array();
+        var $multiSelectElements = $('a.multiSelect');
+        $multiSelectElements.each(function(){
+            $id = $(this).attr('id');
+            $value = $(this).find('span').text();
+            $returnValueArr[$id] = $value;
+        })
+        var $pageInputElements = $('form :input');
+        $pageInputElements.each(function(){
+            $type = $(this).attr('type');
+            $id = $(this).attr('id');
+            $value = $(this).val();
+            if('hidden' == $type)
+            {
+                $hiddenId = $(this).attr('id');
+                if('ResultInfoView_result_step' == $hiddenId)
+                {
+                    $returnValueArr[$id] = $(this).val();
+                }
+            }
+            else if('checkbox' == $type)
+            {
+                $name = $(this).attr('name');
+                if('checked' == $(this).attr('checked'))
+                {
+                    if($returnValueArr[$name] == undefined)
+                    {
+                        $returnValueArr[$name] = $value;
+                    }
+                    else
+                    {
+                        $returnValueArr[$name] += ','+$value;
+                    }
+                }
+
+            }
+            else
+            {
+                $returnValueArr[$id] = $(this).val();
+            }
+        });
+        return $returnValueArr;
+    }
+    function setAssignTo($type)
+    {
+        if('result' == $type)
+        {
+            return;
+        }
+        $idPrefix = '';
+        if('bug' == $type)
+        {
+            $idPrefix = 'BugInfoView_';
+        }
+        else if('case' == $type)
+        {
+            $idPrefix = 'CaseInfoView_';
+        }
+        $moduleId = $('#'+$idPrefix+'productmodule_id').val();
+        jQuery.get("/bugfree3.0.3/index.php/search/getModuleOwner", {'module_id':$moduleId}, function (data, textStatus){
+            if('success' == textStatus)
+            {
+                if('' != data)
+                {
+                    $('#'+$idPrefix+'assign_to_name').val(data);
+                }
+            }
+        });
+    }
+    
+    function setDefaultCursor()
+    {
+        $('div#buttonlist .btn').each(function(){
+            if('disabled' == $(this).attr('disabled'))
+                {
+                    $(this).css('cursor','default');
+                }
+        })
+    }
+    window.onload = function()
+    {
+        setDefaultCursor();
+        $oldValueArr = getFormValue();
+        initShowGotoBCR();
+    }
+    
+    $(function(){
+        if('view' == actionType)
+        {
+            jQuery.get("/bugfree3.0.3/index.php/search/getPreNextId",
+            {'id':1179,'type':$infoType,'product_id':productId}, function (data, textStatus){
+                if('success' == textStatus)
+                {
+                    $('span#preNextSpan').html(data);
+                }
+            });
+        }
+    })
+</script>
+<link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/blue.css" />
+<link rel="shortcut icon" href="/bugfree3.0.3/favicon_blue.ico" type="image/x-icon" />
+<title>Bug #1179 bug111</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="en" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/form.css" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/bugfree3.0.3/themes/classic/assets/css/bugfree3_basic.css" />
+                                        <script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/overlib.js"></script>
+        <script type="text/javascript" src="/bugfree3.0.3/themes/classic/assets/js/main.js"></script>
+        <title>BugFree</title>
+    </head>
+    <body>
+        <div id="edit-top-bar" >
+    <div id="logo">
+        <a href="/bugfree3.0.3/index.php/bug/list/1">
+            <img src="/bugfree3.0.3/themes/classic/assets/images/blue/logo.png" alt="BugFree" title="BugFree"/>
+        </a>
+    </div>
+    <div id="buttonlist">
+        <span id="preNextSpan"><input onclick="$needToConfirm = false;location.href=&quot;/bugfree3.0.3/index.php/bug/&quot;" class="btn" disabled="disabled" accesskey="P" name="yt0" type="button" value="上一个(P)" /><input onclick="$needToConfirm = false;location.href=&quot;/bugfree3.0.3/index.php/bug/&quot;" class="btn" disabled="disabled" accesskey="N" name="yt1" type="button" value="下一个(N)" /></span>&nbsp;&nbsp;&nbsp;&nbsp;<input onclick="$needToConfirm = false;location.href=&quot;/bugfree3.0.3/index.php/bug/1179/opened_edit&quot;" class="btn" accesskey="E" name="yt2" type="button" value="编辑(E)" /><input onclick="$needToConfirm = false;location.href=&quot;/bugfree3.0.3/index.php/info/edit?type=bug&amp;action=opened&amp;source_id=1179&quot;" class="btn" accesskey="C" name="yt3" type="button" value="复制(C)" /><input onclick="$needToConfirm = false;openWindow(&quot;/bugfree3.0.3/index.php/info/edit?type=case&amp;action=opened&amp;bug_id=1179&quot;,&quot;_blank&quot;)" class="btn" accesskey="S" name="yt4" type="button" value="新建Case(S)" /><input onclick="$needToConfirm = false;location.href=&quot;/bugfree3.0.3/index.php/bug/1179/resolved&quot;" class="btn" accesskey="R" name="yt5" type="button" value="解决(R)" /><input onclick="$needToConfirm = false;location.href=&quot;/bugfree3.0.3/index.php/bug/1179/closed&quot;" class="btn" disabled="disabled" accesskey="L" name="yt6" type="button" value="关闭(L)" /><input onclick="$needToConfirm = false;location.href=&quot;/bugfree3.0.3/index.php/bug/1179/activated&quot;" class="btn" disabled="disabled" accesskey="A" name="yt7" type="button" value="激活(A)" />    </div>
+</div>
+
+
+
+        <div id="editmain">
+    <div class="form">
+
+<form enctype="multipart/form-data" id="bug-info-form" action="/bugfree3.0.3/index.php/bug/1179" method="post">        <div>
+        <div style="float: left;">
+        <div class="row">
+		<label style="padding-left:5px;" for="BugInfoView_title">Bug标题</label>                <span class="bugstatus_active">&nbsp;</span>                <input style="width:580px;" readonly="readonly" class="readonly_field" title="bug111" name="BugInfoView[title]" id="BugInfoView_title" type="text" maxlength="255" value="bug111" />	</div>
+        <div class="row">
+		<label style="padding-left:5px;" for="BugInfoView_module_name">模块路径</label>                <span class="bugstatus_closed">&nbsp;</span>
+                <input style="width:580px;" readonly="readonly" class="readonly_field" title="Sample Product" name="BugInfoView[module_name]" id="BugInfoView_module_name" type="text" value="Sample Product" />	</div>
+        </div>
+        <div class="info_id"><span id="span_info_id">1179</span></div>
+        </div>
+        <div style="clear:both;">
+            <fieldset style="width: 32%;float: left;">
+                <legend>常规</legend>
+                <div class="row">
+                    <label for="BugInfoView_bug_status">状态</label>                    Active
+                </div>
+                <div class="row">
+                    <label for="BugInfoView_assign_to">指派给</label>                    user1                </div>
+                <div class="row">
+                    <label for="BugInfoView_mail_to">抄送给</label>                    <input readonly="readonly" class="info_input readonly_field" title="" name="BugInfoView[mail_to]" id="BugInfoView_mail_to" type="text" value="" />                </div>
+                <div class="row">
+                    <label for="BugInfoView_severity">严重程度</label>                    1                </div>
+                <div class="row">
+                    <label for="BugInfoView_priority">优先级</label>                                    </div>
+                <div class="row"><label style="font-weight:normal;" class="" for="Custom_BugType">类型</label><input readonly="readonly" class="info_input readonly_field" title="代码错误" type="text" value="代码错误" name="Custom[BugType]" id="Custom_BugType" /></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_HowFound">如何发现</label><input readonly="readonly" class="info_input readonly_field" title="功能测试" type="text" value="功能测试" name="Custom[HowFound]" id="Custom_HowFound" /></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_BugOS">操作系统</label><input readonly="readonly" class="info_input readonly_field" title="" type="text" value="" name="Custom[BugOS]" id="Custom_BugOS" /></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_BugBrowser">浏览器</label><input readonly="readonly" class="info_input readonly_field" title="" type="text" value="" name="Custom[BugBrowser]" id="Custom_BugBrowser" /></div>                <div class="row">
+                    <label for="BugInfoView_updated_by">修改者</label>                    user1                </div>
+                <div class="row">
+                    <label for="BugInfoView_updated_at">修改日期</label>                    2019-05-27                </div>
+                <div class="row">
+                    <label for="BugInfoView_reopen_count">激活次数</label>                    0                </div>
+            </fieldset>
+            <div style="float: left;width: 33%">
+            <fieldset>
+                <legend>新建</legend>
+                <div class="row">
+                    <label for="BugInfoView_created_by">创建者</label>                    user1                
+                </div>
+                <div class="row">
+                    <label for="BugInfoView_created_at">创建日期</label>                    2019-05-27                </div>
+                <div class="row"><label style="font-weight:normal;" class="" for="Custom_OpenedBuild">创建 Build</label><input readonly="readonly" class="info_input readonly_field" title="1111" type="text" value="1111" name="Custom[OpenedBuild]" id="Custom_OpenedBuild" /></div>            </fieldset>
+            <fieldset>
+                <legend>解决</legend>
+                <div class="row">
+                    <label for="BugInfoView_resolved_by">解决者</label>                                    </div>
+                <div class="row">
+                    <label for="BugInfoView_resolved_at">解决日期</label>                                    </div>
+                <div class="row"><label style="font-weight:normal;" class="" for="Custom_ResolvedBuild">解决 Build</label><input readonly="readonly" class="info_input readonly_field" title="" type="text" value="" name="Custom[ResolvedBuild]" id="Custom_ResolvedBuild" /></div>                <div class="row">
+                    <label for="BugInfoView_solution">解决方案</label>                                    </div>
+                <div class="row">
+                    <label for="BugInfoView_duplicate_id">重复 Bug</label>                                    </div>
+                
+            </fieldset>
+            <fieldset>
+                <legend>关闭</legend>
+                                <div class="row">
+                    <label for="BugInfoView_closed_by">关闭者</label>                                    </div>
+                <div class="row">
+                    <label for="BugInfoView_closed_at">关闭日期</label>                                    </div>
+            </fieldset>
+            </div>
+            <div style="float:right;width: 33%;">
+                <fieldset>
+                <legend>其它信息</legend>
+                <div class="row"><label style="font-weight:normal;" class="" for="Custom_BugSubStatus">处理状态</label><input readonly="readonly" class="info_input readonly_field" title="" type="text" value="" name="Custom[BugSubStatus]" id="Custom_BugSubStatus" /></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_BugMachine">机器配置</label><input readonly="readonly" class="info_input readonly_field" title="" type="text" value="" name="Custom[BugMachine]" id="Custom_BugMachine" /></div><div class="row"><label style="font-weight:normal;" class="" for="Custom_BugKeyword">关键词</label><input readonly="readonly" class="info_input readonly_field" title="" type="text" value="" name="Custom[BugKeyword]" id="Custom_BugKeyword" /></div>            </fieldset>
+            <fieldset>
+                <legend>Bug 相关</legend>
+                                <div class="row">
+                    <label for="BugInfoView_related_bug">相关 Bug</label>                                    </div>
+
+                <div class="row">
+                    <label for="BugInfoView_related_case">相关 Case</label>                                    </div>
+
+                <div class="row">
+                    <label for="BugInfoView_related_result">相关 Result</label>                                    </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>附件</legend>
+                <div id="uploaded_file" style="word-break:break-all;"></div>             </fieldset>
+
+            </div>
+            </div>
+             <div style="clear:both;">
+                <fieldset style ="width:460px;float: left;word-break:break-all;word-wrap:break-word;">
+                    <legend>注释</legend>
+                    <dl style="clear:both;text-align:left;margin:6px 3px;padding:0;"><dd style="float:left;margin:5px 0 0 4px;">2019-05-27 15:31:55&nbsp;<strong>新建</strong> by <strong>user1</strong></dd></dl>                </fieldset>
+                <fieldset style="width: 460px;float: right;">
+                    <legend>复现步骤</legend>
+                    <div class="row" style="width: 460px;overflow-x: auto;word-break:break-all;word-wrap:break-word;">
+                        [步骤]<br />
+1.<br />
+2.<br />
+<br />
+[结果]<br />
+<br />
+[期望]<br />
+<br />
+[备注]<br />
+<br />                    </div>
+                </fieldset>
+             </div>
+</form>
+</div><!-- form -->
+    </div>
+<div id="template_dialog">
+<table class="dialog-table">
+                  <tbody>
+                  <tr>
+                    <td style="text-align:center" >模板标题&nbsp;&nbsp;<input type="text" maxlength=20 id="dialogTemplateTitle" value=""/><br/><br/></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center" ><input onclick="saveTemplate($(&quot;#dialogTemplateTitle&quot;).val());" name="yt8" type="button" value="保存" /></td>
+                  </tr>
+                </tbody></table></div>    <script type="text/javascript" src="/bugfree3.0.3/assets/50038a0d/jui/js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+jQuery('#template_dialog').dialog({'title':'另存为模板','autoOpen':false,'width':'400px','modal':true,'height':'auto','resizable':false});
+});
+/*]]>*/
+</script>
+</body>
+</html>
+
+
+    </body>
+</html>

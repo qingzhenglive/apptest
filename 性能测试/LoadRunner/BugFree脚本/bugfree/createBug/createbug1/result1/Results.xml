@@ -1,0 +1,692 @@
+﻿<?xml version="1.0"?>
+  <!DOCTYPE Report
+[
+<!ELEMENT Report (General ,(Doc|BPT)) >
+<!ATTLIST Report ver CDATA #REQUIRED tmZone CDATA #REQUIRED>
+
+<!ELEMENT General ( DocLocation ) >
+<!ATTLIST General productName CDATA #REQUIRED productVer CDATA #REQUIRED os CDATA #REQUIRED host CDATA #REQUIRED>
+
+<!ELEMENT BPT (DName,Res,DVer?,TSet?,TInst?,NodeArgs,Doc*) >
+<!ATTLIST BPT rID ID #REQUIRED >
+
+<!ELEMENT Doc (DName, Res, DVer?, TSet?, TInst?, RunType?, DT?, Step*, Action+, DIter*, Action*, Summary?, NodeArgs?)> 
+<!ATTLIST Doc rID ID #REQUIRED type (Test|BC) "Test" productName CDATA #REQUIRED BCIter CDATA #IMPLIED >
+
+<!ELEMENT RunType ( #PCDATA )>
+<!ATTLIST RunType fmStep (False|True) "False" batch (False|True) "False" upDesc (False|True) "False" upChk (False|True) "False" upAS (False|True) "False">
+
+<!ELEMENT DName ( #PCDATA ) >
+
+<!ELEMENT Res ( #PCDATA ) >
+
+<!ELEMENT DVer ( #PCDATA ) >
+
+<!ELEMENT TSet ( #PCDATA ) >
+
+<!ELEMENT TInst ( #PCDATA ) >
+
+<!ELEMENT DIter (Step?,Action+,Summary?,NodeArgs)>
+<!ATTLIST DIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT DocLocation ( #PCDATA )>
+
+<!ELEMENT Action (AName,AIter*,(Step|HtmlStep|Action)*,Summary,NodeArgs) >
+<!ATTLIST Action rID ID #REQUIRED>
+
+<!ELEMENT AIter ((Step|HtmlStep|Action)*,Summary?,NodeArgs) >
+<!ATTLIST AIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT AName ( #PCDATA ) >
+
+<!ELEMENT Step (Obj,Details,Time,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST Step rID ID #REQUIRED retval CDATA #IMPLIED>
+
+<!ELEMENT HtmlStep (HTML,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST HtmlStep rID ID #REQUIRED >
+
+<!ELEMENT Obj ( #PCDATA ) >
+<!ATTLIST Obj plainTxt (False|True) "True">
+
+<!ELEMENT Details ( #PCDATA ) >
+<!ATTLIST Details plainTxt (False|True) "True">
+
+<!ELEMENT Time ( #PCDATA ) >
+
+<!ELEMENT HTML ( #PCDATA ) >
+
+<!ELEMENT Disp ( #PCDATA ) >
+
+<!ELEMENT NodeArgs (Disp,TopPane?,BtmPane?)>
+<!ATTLIST NodeArgs eType CDATA #REQUIRED icon CDATA #REQUIRED nRep CDATA #REQUIRED filter (False|True) "True">
+<!ATTLIST NodeArgs status (Passed|Failed|Done|Warning|Information) "Done">
+<!ATTLIST NodeArgs iconSel CDATA #IMPLIED nType CDATA #IMPLIED >
+
+<!ELEMENT TopPane (Path)>
+
+<!ELEMENT BtmPane ( (Path|WR)?,ASHilite?)>
+<!ATTLIST BtmPane vType CDATA "HTML">
+
+<!ELEMENT Path ( #PCDATA ) >
+
+<!ELEMENT ASHilite ( #PCDATA ) >
+
+<!ELEMENT WR ( #PCDATA ) >
+
+<!ELEMENT DT (NodeArgs) >
+<!ATTLIST DT rID ID #REQUIRED>
+
+<!ELEMENT Summary (Param*)>
+<!ATTLIST Summary sTime CDATA #IMPLIED eTime CDATA #IMPLIED passed CDATA #IMPLIED failed CDATA #IMPLIED warnings CDATA #IMPLIED retval CDATA #IMPLIED stopped (False|True) "False" >
+
+<!ELEMENT Param (ParamName,ParamVal)+ >
+<!ATTLIST Param paramInOut (In|Out) "In">
+
+<!ELEMENT ParamName ( #PCDATA ) >
+
+<!ELEMENT ParamVal ( #PCDATA ) >
+
+]
+> <Report ver="2.0" tmZone="中国标准时间">
+<General productName="Vugen" productVer="11" os="" host="HEBEISHI-B4684A"><DocLocation><![CDATA[C:\LoadRunnerSpace\bugfree\createBug\createbug1]]></DocLocation></General>
+<Doc rID="T1"   productName= "Vugen"  >
+<DName><![CDATA[createbug1]]></DName>
+<Res><![CDATA[result1]]></Res>
+<Action rID="T2">
+<AName><![CDATA[vuser_init]]></AName>
+<Summary sTime="2019-5-27 - 16:22:13" eTime="2019-5-27 - 16:22:13" passed="0" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="2" nRep="5" >
+<Disp><![CDATA[vuser_init Summary]]></Disp>
+</NodeArgs>
+</Action>
+<DIter rID="T3" iterID="1" >
+<Action rID="T4">
+<AName><![CDATA[Action]]></AName>
+<Step rID="T5">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>1_product=ed19a46d580cd427bc4d1a363cd580197d78ac65s%3A1%3A%221%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:13]]></Time>
+<NodeArgs eType="General" icon="4" nRep="9" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T6">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>pageSize=e37cc0d01a5e29f8fb3ae7ceccc56d9228d79284s%3A2%3A%2220%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:13]]></Time>
+<NodeArgs eType="General" icon="4" nRep="10" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T7">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>2_product=ed19a46d580cd427bc4d1a363cd580197d78ac65s%3A1%3A%221%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:13]]></Time>
+<NodeArgs eType="General" icon="4" nRep="11" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T8">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>ac-cookie=%5B%7B%22data%22%3A%5B%22user1%22%2C%22user1%5Buser1%5D%22%5D%2C%22value%22%3A%22user1%22%2C%22result%22%3A%22user1%22%7D%2C%7B%22data%22%3A%5B%22user2%22%2C%22user2%5Buser2%5D%22%5D%2C%22value%22%3A%22user2%22%2C%22result%22%3A%22user2%22%7D%5D; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:13]]></Time>
+<NodeArgs eType="General" icon="4" nRep="12" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T9">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>3_product=ed19a46d580cd427bc4d1a363cd580197d78ac65s%3A1%3A%221%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:13]]></Time>
+<NodeArgs eType="General" icon="4" nRep="13" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T10">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>language=dfacf804dd6212d70b530775c1186ab4ab2e8670s%3A5%3A%22zh_cn%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:13]]></Time>
+<NodeArgs eType="General" icon="4" nRep="14" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T11">
+<Obj plainTxt="False" ><![CDATA[Url: login]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:15]]></Time>
+<NodeArgs eType="General" icon="5" nRep="15" status="Passed" >
+<Disp><![CDATA[Url: login]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t1.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T12">
+<Obj plainTxt="False" ><![CDATA[Submit Data: login_2]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:23]]></Time>
+<NodeArgs eType="General" icon="6" nRep="16" status="Passed" >
+<Disp><![CDATA[Submit Data: login_2]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t2.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T13">
+<Obj plainTxt="False" ><![CDATA[Submit Data: getProductModule]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:23]]></Time>
+<NodeArgs eType="General" icon="6" nRep="17" status="Passed" >
+<Disp><![CDATA[Submit Data: getProductModule]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t3.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T14">
+<Obj plainTxt="False" ><![CDATA[Url: edit]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:26]]></Time>
+<NodeArgs eType="General" icon="5" nRep="18" status="Passed" >
+<Disp><![CDATA[Url: edit]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t4.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T15">
+<Obj plainTxt="False" ><![CDATA[Submit Data: edit_2]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:26]]></Time>
+<NodeArgs eType="General" icon="6" nRep="19" status="Passed" >
+<Disp><![CDATA[Submit Data: edit_2]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t5.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T16">
+<Obj plainTxt="False" ><![CDATA[Url: BugFree]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:28]]></Time>
+<NodeArgs eType="General" icon="5" nRep="20" status="Passed" >
+<Disp><![CDATA[Url: BugFree]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t6.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T17">
+<Obj plainTxt="False" ><![CDATA[Url: 111]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:28]]></Time>
+<NodeArgs eType="General" icon="5" nRep="21" status="Passed" >
+<Disp><![CDATA[Url: 111]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t7.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T18">
+<Obj plainTxt="False" ><![CDATA[Url: getPreNextId]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:28]]></Time>
+<NodeArgs eType="General" icon="5" nRep="22" status="Passed" >
+<Disp><![CDATA[Url: getPreNextId]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t8.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T19">
+<Obj plainTxt="False" ><![CDATA[Submit Data: getProductModule_2]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:28]]></Time>
+<NodeArgs eType="General" icon="6" nRep="23" status="Passed" >
+<Disp><![CDATA[Submit Data: getProductModule_2]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration1\t9.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Summary sTime="2019-5-27 - 16:22:13" eTime="2019-5-27 - 16:22:28" passed="9" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="2" nRep="8" status="Passed" >
+<Disp><![CDATA[Action Summary]]></Disp>
+</NodeArgs>
+</Action>
+<NodeArgs eType="StartIteration" icon="3" nRep="7" status="Passed" >
+<Disp><![CDATA[createbug1 Iteration 1 (Row 1)]]></Disp>
+</NodeArgs>
+</DIter>
+<DIter rID="T20" iterID="2" >
+<Action rID="T21">
+<AName><![CDATA[Action]]></AName>
+<Step rID="T22">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>1_product=ed19a46d580cd427bc4d1a363cd580197d78ac65s%3A1%3A%221%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:28]]></Time>
+<NodeArgs eType="General" icon="4" nRep="28" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T23">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>pageSize=e37cc0d01a5e29f8fb3ae7ceccc56d9228d79284s%3A2%3A%2220%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:28]]></Time>
+<NodeArgs eType="General" icon="4" nRep="29" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T24">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>2_product=ed19a46d580cd427bc4d1a363cd580197d78ac65s%3A1%3A%221%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:28]]></Time>
+<NodeArgs eType="General" icon="4" nRep="30" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T25">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>ac-cookie=%5B%7B%22data%22%3A%5B%22user1%22%2C%22user1%5Buser1%5D%22%5D%2C%22value%22%3A%22user1%22%2C%22result%22%3A%22user1%22%7D%2C%7B%22data%22%3A%5B%22user2%22%2C%22user2%5Buser2%5D%22%5D%2C%22value%22%3A%22user2%22%2C%22result%22%3A%22user2%22%7D%5D; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:28]]></Time>
+<NodeArgs eType="General" icon="4" nRep="31" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T26">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>3_product=ed19a46d580cd427bc4d1a363cd580197d78ac65s%3A1%3A%221%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:28]]></Time>
+<NodeArgs eType="General" icon="4" nRep="32" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T27">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>language=dfacf804dd6212d70b530775c1186ab4ab2e8670s%3A5%3A%22zh_cn%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:28]]></Time>
+<NodeArgs eType="General" icon="4" nRep="33" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T28">
+<Obj plainTxt="False" ><![CDATA[Url: login]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:30]]></Time>
+<NodeArgs eType="General" icon="5" nRep="34" status="Passed" >
+<Disp><![CDATA[Url: login]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration2\t1.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T29">
+<Obj plainTxt="False" ><![CDATA[Submit Data: login_2]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:38]]></Time>
+<NodeArgs eType="General" icon="6" nRep="35" status="Passed" >
+<Disp><![CDATA[Submit Data: login_2]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration2\t2.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T30">
+<Obj plainTxt="False" ><![CDATA[Submit Data: getProductModule]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:39]]></Time>
+<NodeArgs eType="General" icon="6" nRep="36" status="Passed" >
+<Disp><![CDATA[Submit Data: getProductModule]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration2\t3.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T31">
+<Obj plainTxt="False" ><![CDATA[Url: edit]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:41]]></Time>
+<NodeArgs eType="General" icon="5" nRep="37" status="Passed" >
+<Disp><![CDATA[Url: edit]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration2\t4.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T32">
+<Obj plainTxt="False" ><![CDATA[Submit Data: edit_2]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:42]]></Time>
+<NodeArgs eType="General" icon="6" nRep="38" status="Passed" >
+<Disp><![CDATA[Submit Data: edit_2]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration2\t5.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T33">
+<Obj plainTxt="False" ><![CDATA[Url: BugFree]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:43]]></Time>
+<NodeArgs eType="General" icon="5" nRep="39" status="Passed" >
+<Disp><![CDATA[Url: BugFree]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration2\t6.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T34">
+<Obj plainTxt="False" ><![CDATA[Url: 111]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:44]]></Time>
+<NodeArgs eType="General" icon="5" nRep="40" status="Passed" >
+<Disp><![CDATA[Url: 111]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration2\t7.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T35">
+<Obj plainTxt="False" ><![CDATA[Url: getPreNextId]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:44]]></Time>
+<NodeArgs eType="General" icon="5" nRep="41" status="Passed" >
+<Disp><![CDATA[Url: getPreNextId]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration2\t8.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T36">
+<Obj plainTxt="False" ><![CDATA[Submit Data: getProductModule_2]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:44]]></Time>
+<NodeArgs eType="General" icon="6" nRep="42" status="Passed" >
+<Disp><![CDATA[Submit Data: getProductModule_2]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration2\t9.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Summary sTime="2019-5-27 - 16:22:28" eTime="2019-5-27 - 16:22:44" passed="9" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="2" nRep="27" status="Passed" >
+<Disp><![CDATA[Action Summary]]></Disp>
+</NodeArgs>
+</Action>
+<NodeArgs eType="StartIteration" icon="3" nRep="26" status="Passed" >
+<Disp><![CDATA[createbug1 Iteration 2 (Row 2)]]></Disp>
+</NodeArgs>
+</DIter>
+<DIter rID="T37" iterID="3" >
+<Action rID="T38">
+<AName><![CDATA[Action]]></AName>
+<Step rID="T39">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>1_product=ed19a46d580cd427bc4d1a363cd580197d78ac65s%3A1%3A%221%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:44]]></Time>
+<NodeArgs eType="General" icon="4" nRep="47" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T40">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>pageSize=e37cc0d01a5e29f8fb3ae7ceccc56d9228d79284s%3A2%3A%2220%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:44]]></Time>
+<NodeArgs eType="General" icon="4" nRep="48" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T41">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>2_product=ed19a46d580cd427bc4d1a363cd580197d78ac65s%3A1%3A%221%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:44]]></Time>
+<NodeArgs eType="General" icon="4" nRep="49" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T42">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>ac-cookie=%5B%7B%22data%22%3A%5B%22user1%22%2C%22user1%5Buser1%5D%22%5D%2C%22value%22%3A%22user1%22%2C%22result%22%3A%22user1%22%7D%2C%7B%22data%22%3A%5B%22user2%22%2C%22user2%5Buser2%5D%22%5D%2C%22value%22%3A%22user2%22%2C%22result%22%3A%22user2%22%7D%5D; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:44]]></Time>
+<NodeArgs eType="General" icon="4" nRep="50" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T43">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>3_product=ed19a46d580cd427bc4d1a363cd580197d78ac65s%3A1%3A%221%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:44]]></Time>
+<NodeArgs eType="General" icon="4" nRep="51" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T44">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>language=dfacf804dd6212d70b530775c1186ab4ab2e8670s%3A5%3A%22zh_cn%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:44]]></Time>
+<NodeArgs eType="General" icon="4" nRep="52" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T45">
+<Obj plainTxt="False" ><![CDATA[Url: login]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:45]]></Time>
+<NodeArgs eType="General" icon="5" nRep="53" status="Passed" >
+<Disp><![CDATA[Url: login]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration3\t1.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T46">
+<Obj plainTxt="False" ><![CDATA[Submit Data: login_2]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:55]]></Time>
+<NodeArgs eType="General" icon="6" nRep="54" status="Passed" >
+<Disp><![CDATA[Submit Data: login_2]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration3\t2.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T47">
+<Obj plainTxt="False" ><![CDATA[Submit Data: getProductModule]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:55]]></Time>
+<NodeArgs eType="General" icon="6" nRep="55" status="Passed" >
+<Disp><![CDATA[Submit Data: getProductModule]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration3\t3.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T48">
+<Obj plainTxt="False" ><![CDATA[Url: edit]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:58]]></Time>
+<NodeArgs eType="General" icon="5" nRep="56" status="Passed" >
+<Disp><![CDATA[Url: edit]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration3\t4.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T49">
+<Obj plainTxt="False" ><![CDATA[Submit Data: edit_2]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:22:59]]></Time>
+<NodeArgs eType="General" icon="6" nRep="57" status="Passed" >
+<Disp><![CDATA[Submit Data: edit_2]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration3\t5.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T50">
+<Obj plainTxt="False" ><![CDATA[Url: BugFree]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:23:00]]></Time>
+<NodeArgs eType="General" icon="5" nRep="58" status="Passed" >
+<Disp><![CDATA[Url: BugFree]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration3\t6.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T51">
+<Obj plainTxt="False" ><![CDATA[Url: 111]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:23:01]]></Time>
+<NodeArgs eType="General" icon="5" nRep="59" status="Passed" >
+<Disp><![CDATA[Url: 111]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration3\t7.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T52">
+<Obj plainTxt="False" ><![CDATA[Url: getPreNextId]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:23:01]]></Time>
+<NodeArgs eType="General" icon="5" nRep="60" status="Passed" >
+<Disp><![CDATA[Url: getPreNextId]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration3\t8.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T53">
+<Obj plainTxt="False" ><![CDATA[Submit Data: getProductModule_2]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:23:01]]></Time>
+<NodeArgs eType="General" icon="6" nRep="61" status="Passed" >
+<Disp><![CDATA[Submit Data: getProductModule_2]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration3\t9.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Summary sTime="2019-5-27 - 16:22:44" eTime="2019-5-27 - 16:23:01" passed="9" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="2" nRep="46" status="Passed" >
+<Disp><![CDATA[Action Summary]]></Disp>
+</NodeArgs>
+</Action>
+<NodeArgs eType="StartIteration" icon="3" nRep="45" status="Passed" >
+<Disp><![CDATA[createbug1 Iteration 3 (Row 3)]]></Disp>
+</NodeArgs>
+</DIter>
+<DIter rID="T54" iterID="4" >
+<Action rID="T55">
+<AName><![CDATA[Action]]></AName>
+<Step rID="T56">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>1_product=ed19a46d580cd427bc4d1a363cd580197d78ac65s%3A1%3A%221%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:27:50]]></Time>
+<NodeArgs eType="General" icon="4" nRep="66" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T57">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>pageSize=e37cc0d01a5e29f8fb3ae7ceccc56d9228d79284s%3A2%3A%2220%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:27:50]]></Time>
+<NodeArgs eType="General" icon="4" nRep="67" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T58">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>2_product=ed19a46d580cd427bc4d1a363cd580197d78ac65s%3A1%3A%221%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:27:50]]></Time>
+<NodeArgs eType="General" icon="4" nRep="68" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T59">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>ac-cookie=%5B%7B%22data%22%3A%5B%22user1%22%2C%22user1%5Buser1%5D%22%5D%2C%22value%22%3A%22user1%22%2C%22result%22%3A%22user1%22%7D%2C%7B%22data%22%3A%5B%22user2%22%2C%22user2%5Buser2%5D%22%5D%2C%22value%22%3A%22user2%22%2C%22result%22%3A%22user2%22%7D%5D; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:27:50]]></Time>
+<NodeArgs eType="General" icon="4" nRep="69" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T60">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>3_product=ed19a46d580cd427bc4d1a363cd580197d78ac65s%3A1%3A%221%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:27:50]]></Time>
+<NodeArgs eType="General" icon="4" nRep="70" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T61">
+<Obj plainTxt="False" ><![CDATA[Service: Add Cookie]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER>Add the following cookie: <STRONG><FONT COLOR=#00AF00>language=dfacf804dd6212d70b530775c1186ab4ab2e8670s%3A5%3A%22zh_cn%22%3B; DOMAIN=10.7.90.119</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:27:50]]></Time>
+<NodeArgs eType="General" icon="4" nRep="71" >
+<Disp><![CDATA[Service: Add Cookie]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T62">
+<Obj plainTxt="False" ><![CDATA[Url: login]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:27:52]]></Time>
+<NodeArgs eType="General" icon="5" nRep="72" status="Passed" >
+<Disp><![CDATA[Url: login]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration4\t1.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T63">
+<Obj plainTxt="False" ><![CDATA[Submit Data: login_2]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:28:02]]></Time>
+<NodeArgs eType="General" icon="6" nRep="73" status="Passed" >
+<Disp><![CDATA[Submit Data: login_2]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration4\t2.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T64">
+<Obj plainTxt="False" ><![CDATA[Submit Data: getProductModule]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:28:02]]></Time>
+<NodeArgs eType="General" icon="6" nRep="74" status="Passed" >
+<Disp><![CDATA[Submit Data: getProductModule]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration4\t3.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T65">
+<Obj plainTxt="False" ><![CDATA[Url: edit]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:28:06]]></Time>
+<NodeArgs eType="General" icon="5" nRep="75" status="Passed" >
+<Disp><![CDATA[Url: edit]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration4\t4.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T66">
+<Obj plainTxt="False" ><![CDATA[Submit Data: edit_2]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:28:07]]></Time>
+<NodeArgs eType="General" icon="6" nRep="76" status="Passed" >
+<Disp><![CDATA[Submit Data: edit_2]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iteration4\t5.inf]]></Path>
+</BtmPane>
+</NodeArgs>
+</Step>
+<Step rID="T67">
+<Obj plainTxt="False" ><![CDATA[Url: BugFree]]></Obj>
+<Details plainTxt="False" ><![CDATA[<CENTER><STRONG><FONT COLOR=#009A63>Step completed successfully</FONT></STRONG></CENTER>]]></Details>
+<Time><![CDATA[2019-5-27 - 16:28:09]]></Time>
+<NodeArgs eType="General" icon="5" nRep="77" status="Passed" >
+<Disp><![CDATA[Url: BugFree]]></Disp>
+<BtmPane vType="HTMLSNSH">
+<Path><![CDATA[\Iterati

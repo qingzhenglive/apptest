@@ -1,0 +1,21 @@
+功能测试：
+1、编写Appium测试用例20条
+2、在测试框架加入free marker美化测试报告和javamail生成并发送测试报告
+https://github.com/liuchen0510/apptest/tree/master/yangkaijing/AppiumFramework
+3、重新运行了monkey命令（之前生成log文件的那次命令要求执行次数太多没有执行完，在此减少执行次数重新执行）
+https://github.com/liuchen0510/apptest/tree/master/yangkaijing/文档/monkey
+4、将游迹功能列表分条写入read mine替换，以便与缺陷列表一样可以在read mine直接查看
+5、熟悉uiautomator的用法（分类、定位等）
+使用uiautomator书写测试用例
+https://github.com/liuchen0510/apptest/tree/master/yangkaijing/UIAutomatorTest/app/src/androidTest/java/com/example/uiautomatortest
+性能测试：
+书写BugFree测试方案
+书写BugFree测试计划
+使用LoadRunner录制BugFree的创建bug、case的脚本,并进行参数化（参数化文档）、添加事务、检查点
+使用LoadRunner进行场景设计和场景运行，书写文档
+https://github.com/liuchen0510/apptest/tree/master/yangkaijing/性能测试/LoadRunner
+使用BadBoy对Discuz进行登录、发帖和回帖的录制
+使用JMeter添加事务、检查点、逻辑控制器、监听器
+使用JMeter创建场景，设置并发量
+将JMeter操作记录文档
+https://github.com/liuchen0510/apptest/tree/master/yangkaijing/性能测试/JMeter

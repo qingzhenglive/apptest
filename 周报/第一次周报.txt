@@ -1,0 +1,15 @@
+1、完成游迹项目的环境搭建
+服务器：在eclipse里用tomcat启用（解决了jar包缺少、tomcat启动无法访问的问题）
+客户端：在Android studio启用（gradle版本注意）
+2、功能列表的书写（readmine上）
+搭建好游迹项目后，熟悉游迹的功能
+书写游迹项目的功能列表（readmine上）
+3、根据功能列表书写缺陷列表
+4、monkey的使用：（readmine上的git地址)
+运用monkey对生成的apk进行伪随机测试
+(注意运行次数，运行次数刚开始设定太多执行不完)
+5、编写测试框架：根据ppt和课上代码完成框架，调试运行
+6、编写测试用例：使用测试框架编写测试用例（还未写完20条用例）
+元素定位有问题
+
+git地址：https://github.com/liuchen0510/apptest/tree/master/yangkaijing

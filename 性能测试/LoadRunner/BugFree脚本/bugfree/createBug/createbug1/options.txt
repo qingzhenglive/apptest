@@ -1,0 +1,9 @@
+-+
+-DCCI
+-D_IDA_XL
+-DWINNT
+-IC:\LoadRunnerSpace\bugfree\createBug\createbug1
+-IC:\Program Files\HP\LoadRunner\include
+-ec:\loadrunnerspace\bugfree\createbug\createbug1\\logfile.log
+c:\loadrunnerspace\bugfree\createbug\createbug1\\combined_createbug1.c
+c:\loadrunnerspace\bugfree\createbug\createbug1\\pre_cci.c
